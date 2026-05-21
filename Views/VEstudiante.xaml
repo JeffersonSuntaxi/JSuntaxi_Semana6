@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JSuntaxi_Semana6.Views.VEstudiante"
+             Title="VEstudiante">
+
+    <VerticalStackLayout Spacing="20" Padding="20">
+
+        <Label 
+            Text="CONSUMO SERVICIOS WEB / ESTUDIANTES"
+            FontSize="20"
+            TextColor="Blue"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Grid ColumnDefinitions="70, 130, 130, 80" HorizontalOptions="Center">
+            <Border Stroke="Black" StrokeThickness="1" BackgroundColor="#E0E0E0" Padding="5">
+                <Label Text="Código" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            </Border>
+            <Border Grid.Column="1" Stroke="Black" StrokeThickness="1" BackgroundColor="#E0E0E0" Padding="5">
+                <Label Text="Nombre" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            </Border>
+            <Border Grid.Column="2" Stroke="Black" StrokeThickness="1" BackgroundColor="#E0E0E0" Padding="5">
+                <Label Text="Apellido" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            </Border>
+            <Border Grid.Column="3" Stroke="Black" StrokeThickness="1" BackgroundColor="#E0E0E0" Padding="5">
+                <Label Text="Edad" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            </Border>
+        </Grid>
+
+        <ListView x:Name="ListaEstudiantes" RowHeight="40" HorizontalOptions="Center" SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnDefinitions="70, 130, 130, 80" HorizontalOptions="Center">
+
+                            <Border Stroke="Black" StrokeThickness="1" BackgroundColor="White" Padding="5">
+                                <Label Text="{Binding codigo}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Border>
+
+                            <Border Grid.Column="1" Stroke="Black" StrokeThickness="1" BackgroundColor="White" Padding="5">
+                                <Label Text="{Binding nombre}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Border>
+
+                            <Border Grid.Column="2" Stroke="Black" StrokeThickness="1" BackgroundColor="White" Padding="5">
+                                <Label Text="{Binding apellido}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Border>
+
+                            <Border Grid.Column="3" Stroke="Black" StrokeThickness="1" BackgroundColor="White" Padding="5">
+                                <Label Text="{Binding edad}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Border>
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </VerticalStackLayout>
+</ContentPage>
