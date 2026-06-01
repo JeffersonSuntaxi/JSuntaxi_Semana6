@@ -24,4 +24,15 @@ public partial class VEstudiante : ContentPage
 		InitializeComponent();
 		Get();
 	}
+
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new VAgregarEstudiante());
+    }
+
+    private void ListaEstudiantes_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+    {
+        var objetoestudiante = (Estudiante)e.SelectedItem;
+        Navigation.PushAsync(new VActualizarEliminar(objetoestudiante));
+    }
 }

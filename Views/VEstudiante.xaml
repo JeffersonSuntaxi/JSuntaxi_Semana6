@@ -2,59 +2,87 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JSuntaxi_Semana6.Views.VEstudiante"
-             Title="VEstudiante">
+             Title="Estudiantes"
+             BackgroundColor="#F5F6FA">
 
-    <VerticalStackLayout Spacing="20" Padding="20">
+    <Grid RowDefinitions="Auto, Auto, *, Auto" Padding="20" RowSpacing="15">
 
         <Label 
-            Text="CONSUMO SERVICIOS WEB / ESTUDIANTES"
-            FontSize="20"
-            TextColor="Blue"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            Grid.Row="0"
+            Text="Consumo Servicios Web / Estudiantes"
+            FontSize="22"
+            FontAttributes="Bold"
+            TextColor="#2C3E50"
+            HorizontalOptions="Center"
+            Margin="0,10,0,5"/>
 
-        <Grid ColumnDefinitions="70, 130, 130, 80" HorizontalOptions="Center">
-            <Border Stroke="Black" StrokeThickness="1" BackgroundColor="#E0E0E0" Padding="5">
-                <Label Text="Código" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-            </Border>
-            <Border Grid.Column="1" Stroke="Black" StrokeThickness="1" BackgroundColor="#E0E0E0" Padding="5">
-                <Label Text="Nombre" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-            </Border>
-            <Border Grid.Column="2" Stroke="Black" StrokeThickness="1" BackgroundColor="#E0E0E0" Padding="5">
-                <Label Text="Apellido" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-            </Border>
-            <Border Grid.Column="3" Stroke="Black" StrokeThickness="1" BackgroundColor="#E0E0E0" Padding="5">
-                <Label Text="Edad" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-            </Border>
-        </Grid>
+        <Border Grid.Row="1"
+                StrokeThickness="0" 
+                BackgroundColor="Transparent" 
+                Margin="10,0" 
+                Padding="12" 
+                HorizontalOptions="FillAndExpand">
 
-        <ListView x:Name="ListaEstudiantes" RowHeight="40" HorizontalOptions="Center" SeparatorVisibility="None">
+            <Grid ColumnDefinitions="1.5*, 2.5*, 2.5*, 1.5*" ColumnSpacing="10">
+                <Label Text="Código" FontAttributes="Bold" TextColor="#7F8C8D" HorizontalTextAlignment="Center"/>
+                <Label Grid.Column="1" Text="Nombre" FontAttributes="Bold" TextColor="#7F8C8D" HorizontalTextAlignment="Start"/>
+                <Label Grid.Column="2" Text="Apellido" FontAttributes="Bold" TextColor="#7F8C8D" HorizontalTextAlignment="Start"/>
+                <Label Grid.Column="3" Text="Edad" FontAttributes="Bold" TextColor="#7F8C8D" HorizontalTextAlignment="Center"/>
+            </Grid>
+        </Border>
+
+        <ListView Grid.Row="2"
+                  x:Name="ListaEstudiantes" 
+                  ItemSelected="ListaEstudiantes_ItemSelected" 
+                  RowHeight="70" 
+                  HorizontalOptions="FillAndExpand" 
+                  SeparatorVisibility="None"
+                  BackgroundColor="Transparent">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid ColumnDefinitions="70, 130, 130, 80" HorizontalOptions="Center">
+                        <Border StrokeThickness="0" 
+                                BackgroundColor="White" 
+                                Margin="10,5" 
+                                Padding="12"
+                                StrokeShape="RoundRectangle 10"
+                                HorizontalOptions="FillAndExpand">
 
-                            <Border Stroke="Black" StrokeThickness="1" BackgroundColor="White" Padding="5">
-                                <Label Text="{Binding codigo}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                            </Border>
+                            <Border.Shadow>
+                                <Shadow Brush="#000000" Offset="0,2" Radius="4" Opacity="0.08" />
+                            </Border.Shadow>
 
-                            <Border Grid.Column="1" Stroke="Black" StrokeThickness="1" BackgroundColor="White" Padding="5">
-                                <Label Text="{Binding nombre}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                            </Border>
+                            <Grid ColumnDefinitions="1.5*, 2.5*, 2.5*, 1.5*" ColumnSpacing="10" VerticalOptions="Center">
 
-                            <Border Grid.Column="2" Stroke="Black" StrokeThickness="1" BackgroundColor="White" Padding="5">
-                                <Label Text="{Binding apellido}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                            </Border>
+                                <Border BackgroundColor="#E8F0FE" StrokeShape="RoundRectangle 5" StrokeThickness="0" HorizontalOptions="Center" WidthRequest="45" Padding="0,4">
+                                    <Label Text="{Binding codigo}" FontAttributes="Bold" TextColor="#1A73E8" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </Border>
 
-                            <Border Grid.Column="3" Stroke="Black" StrokeThickness="1" BackgroundColor="White" Padding="5">
-                                <Label Text="{Binding edad}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                            </Border>
-
-                        </Grid>
+                                <Label Grid.Column="1" Text="{Binding nombre}" FontAttributes="Bold" TextColor="#2C3E50" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" LineBreakMode="TailTruncation"/>
+                                <Label Grid.Column="2" Text="{Binding apellido}" TextColor="#5F6368" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" LineBreakMode="TailTruncation"/>
+                                <Label Grid.Column="3" Text="{Binding edad}" TextColor="#2C3E50" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Grid>
+                        </Border>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-    </VerticalStackLayout>
+        <Button Grid.Row="3"
+                Text="Agregar Nuevo Estudiante" 
+                Clicked="Button_Clicked" 
+                BackgroundColor="#1A73E8"
+                TextColor="White"
+                FontAttributes="Bold"
+                FontSize="16"
+                CornerRadius="8"
+                HeightRequest="50"
+                HorizontalOptions="FillAndExpand"
+                Margin="10,5,10,5">
+            <Button.Shadow>
+                <Shadow Brush="#1A73E8" Offset="0,4" Radius="5" Opacity="0.3" />
+            </Button.Shadow>
+        </Button>
+
+    </Grid>
 </ContentPage>

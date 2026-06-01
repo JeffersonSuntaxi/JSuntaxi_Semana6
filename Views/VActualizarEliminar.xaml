@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JSuntaxi_Semana6.Views.VActualizarEliminar"
+             Title="Editar Estudiante"
+             BackgroundColor="#F5F6FA">
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="25" VerticalOptions="CenterAndExpand">
+
+            <VerticalStackLayout Spacing="8" HorizontalOptions="Center">
+                <Label 
+                    Text="Gestión de Estudiante"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="#2C3E50"
+                    HorizontalOptions="Center" />
+                <Label 
+                    Text="Modifique o elimine el registro seleccionado"
+                    FontSize="14"
+                    TextColor="#7F8C8D"
+                    HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <Border BackgroundColor="White"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 12"
+                    Padding="20"
+                    Margin="0,10,0,10">
+                <Border.Shadow>
+                    <Shadow Brush="#000000" Offset="0,4" Radius="8" Opacity="0.05" />
+                </Border.Shadow>
+
+                <VerticalStackLayout Spacing="18">
+
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Código de Registro" FontSize="14" FontAttributes="Bold" TextColor="#7F8C8D" />
+                        <Border Stroke="#E0E0E0" BackgroundColor="#F8F9FA" StrokeThickness="1" StrokeShape="RoundRectangle 6" Padding="10,2">
+                            <Entry x:Name="txtCodigo" 
+                                   IsReadOnly="True"
+                                   TextColor="#7F8C8D"
+                                   FontAttributes="Bold"
+                                   HeightRequest="45" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Nombre" FontSize="14" FontAttributes="Bold" TextColor="#34495E" />
+                        <Border Stroke="#BDC3C7" StrokeThickness="1" StrokeShape="RoundRectangle 6" Padding="10,2">
+                            <Entry x:Name="txtNombre" 
+                                   Placeholder="Ingrese el nombre" 
+                                   TextColor="#2C3E50"
+                                   PlaceholderColor="#95A5A6"
+                                   HeightRequest="45" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Apellido" FontSize="14" FontAttributes="Bold" TextColor="#34495E" />
+                        <Border Stroke="#BDC3C7" StrokeThickness="1" StrokeShape="RoundRectangle 6" Padding="10,2">
+                            <Entry x:Name="txtApellido" 
+                                   Placeholder="Ingrese el apellido" 
+                                   TextColor="#2C3E50"
+                                   PlaceholderColor="#95A5A6"
+                                   HeightRequest="45" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Edad" FontSize="14" FontAttributes="Bold" TextColor="#34495E" />
+                        <Border Stroke="#BDC3C7" StrokeThickness="1" StrokeShape="RoundRectangle 6" Padding="10,2">
+                            <Entry x:Name="txtEdad" 
+                                   Placeholder="Ej. 21" 
+                                   Keyboard="Numeric"
+                                   MaxLength="2"
+                                   TextColor="#2C3E50"
+                                   PlaceholderColor="#95A5A6"
+                                   HeightRequest="45" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            </Border>
+
+            <Grid ColumnDefinitions="*, *" ColumnSpacing="15" Margin="5,0">
+
+                <Button x:Name="BtnEliminar"
+                        Text="Eliminar"
+                        Clicked="BtnEliminar_Clicked"
+                        BackgroundColor="#E74C3C"
+                        TextColor="White"
+                        CornerRadius="8"
+                        HeightRequest="50"
+                        FontAttributes="Bold"
+                        Grid.Column="0">
+                    <Button.Shadow>
+                        <Shadow Brush="#E74C3C" Offset="0,4" Radius="4" Opacity="0.2" />
+                    </Button.Shadow>
+                </Button>
+
+                <Button x:Name="BtnActualizar"
+                        Text="Actualizar"
+                        Clicked="BtnActualizar_Clicked"
+                        BackgroundColor="#1A73E8"
+                        TextColor="White"
+                        CornerRadius="8"
+                        HeightRequest="50"
+                        FontAttributes="Bold"
+                        Grid.Column="1">
+                    <Button.Shadow>
+                        <Shadow Brush="#1A73E8" Offset="0,4" Radius="4" Opacity="0.3" />
+                    </Button.Shadow>
+                </Button>
+
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

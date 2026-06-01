@@ -11,7 +11,7 @@ namespace JSuntaxi_Semana6
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new Views.VEstudiante());
+            return new Window(new NavigationPage(new Views.VEstudiante()));
         }
     }
 }
